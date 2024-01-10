@@ -43,6 +43,12 @@
 };
 
 
+
+
+
+
+/ {
+
     macros {
         lan_chan: lan_chan {
             compatible = "zmk,behavior-macro";
@@ -57,7 +63,6 @@
 
 
 
-/ {
     keymap {
         compatible = "zmk,keymap";
 
