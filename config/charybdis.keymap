@@ -27,21 +27,21 @@
         compatible = "zmk,combos";
 
         combo_lck {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             bindings = <&mkp LCLK>;
-            key-positions = <20 21>;
+            key-positions = <19 20>;
         };
 
         combo_DGSK {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             bindings = <&mo MOUSE>;
-            key-positions = <21 22>;
+            key-positions = <20 21>;
         };
 
         combo_rck {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             bindings = <&mkp RCLK>;
-            key-positions = <22 23>;
+            key-positions = <21 22>;
         };
 
         combo_change {
@@ -67,7 +67,9 @@
             label = "ZM_lan_chan";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap &kp RALT &tog QWERT>
+                <&macro_press &tog QWERT>
+                <&macro_tap &kp RALT>
+                <&macro_release &tog QWERT>
                 ;
         };
 
