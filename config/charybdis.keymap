@@ -34,13 +34,13 @@
 
         combo_lck {
             timeout-ms = <50>;
-            bindings = <&mkp_LCLK>;
+            bindings = <&mkp LCLK>;
             key-positions = <20 21>;
         };
 
         combo_rck {
             timeout-ms = <50>;
-            bindings = <&mkp_RCLK>;
+            bindings = <&mkp RCLK>;
             key-positions = <22 23>;
         };
 
