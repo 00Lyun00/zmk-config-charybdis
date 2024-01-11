@@ -118,9 +118,9 @@
         Nav {
             label = "Nav";
             bindings = <
-&trans     &kp EXCL  &kp PG_UP &kp UP   &kp PG_DN  &none        &bootloader   &none   &kp RCTRL  &kp RALT  &tog QWERT    &kp DEL
+&trans    &kp EXCL   &kp PG_UP &kp UP   &kp PG_DN  &none        &bootloader   &none   &kp RCTRL  &kp RALT  &tog QWERT    &kp DEL
 &trans    &kp HOME   &kp LEFT  &kp DOWN &kp RIGHT  &kp END      &to MAIN  &sk LSHFT   &sk LCTRL  &sk LEFT_ALT &sk LGUI   &kp GRAVE
-&trans    &kp GRAVE  &kp none  &kp none &kp TAB    &none        &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)  &kp TILDE
+&trans    &kp GRAVE  &kp none  &kp none &none    &none        &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)  &kp TILDE
                         &kp LGUI  &kp SPACE  &kp LEFT_ALT       &trans    &bt BT_CLR
             >;
         };
