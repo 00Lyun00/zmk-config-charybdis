@@ -9,7 +9,8 @@
 #define QWERT 1
 #define NUM   2
 #define NAV   3
-#define FUNC  4
+#define SYMB  4
+#define FUNC  5
 
 
 &lt {
@@ -25,17 +26,22 @@
         compatible = "zmk,combos";
 
 
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <25 26>;
-            bindings = <&kp ESC>;
-        };
-
-
         combo_change {
             timeout-ms = <50>;
             bindings = <&lan_chan>;
+            key-positions = <26 27>;
+        };
+
+        combo_lck {
+            timeout-ms = <50>;
+            bindings = <&mkp_LCLK>;
             key-positions = <20 21>;
+        };
+
+        combo_rck {
+            timeout-ms = <50>;
+            bindings = <&mkp_RCLK>;
+            key-positions = <22 23>;
         };
 
 
@@ -45,19 +51,32 @@
 
 
 
-
-
 / {
 
     macros {
+
+// language change and layer change at the same time
         lan_chan: lan_chan {
             compatible = "zmk,behavior-macro";
             label = "ZM_lan_chan";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap &kp CAPS &tog 1>
+                <&macro_tap &kp CAPS &tog QWERT>
                 ;
         };
+
+// automatically write two parentheses
+        auto_par: auto_par {
+            compatible = "zmk,behavior-macro";
+            label = "ZM_auto_par";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LPAR &kp RPAR &kp LEFT>
+                ;
+        };
+
+
+//end of macro list
     };
 
 
@@ -69,10 +88,10 @@
         Main {
             label = "Main";
             bindings = <
-  &kp TAB  &kp Q  &kp W      &kp F      &kp P  &kp B      &kp J    &kp L      &kp U    &kp Y     &kp SEMI    &kp BSPC
-  &kp ESC  &kp A  &kp R      &kp S      &kp T  &kp G      &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
-&kp LSHFT  &kp Z  &kp X      &kp C      &kp D  &kp V      &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
-                         &kp LSHFT  &lt 2 SPACE  &mo 1    &lt 3 BSPC  &kp RET
+  &kp TAB  &kp Q  &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp SEMI    &kp BSPC
+  &kp ESC  &kp A  &kp R      &kp S      &kp T  &kp G           &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
+&kp LSHFT  &kp Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
+                     &kp LSHFT  &lt NUM SPACE  &lt SYMB DEL    &lt NAV BSPC  &lt FUNC RET
             >;
         };
 
@@ -89,30 +108,39 @@
         Num {
             label = "Num";
             bindings = <
-  &trans &bootloader &none        &none    &kp LC(S) &none       &kp ASTRK  &kp N7   &kp N8  &kp N9  &kp MINUS  &kp HOME
-  &trans   &sk LCTRL &sk LEFT_ALT &sk LGUI &sk LSHFT &kp LC(A)   &kp FSLH   &kp N4   &kp N5  &kp N6  &kp PLUS    &trans
-&kp LEFT_ALT &kp LG(Z) &kp LG(X)  &kp LG(C) &kp LG(V) &kp LG(Y)  &kp EQUAL  &kp N1   &kp N2  &kp N3  &kp N0    &trans
-                               &kp LGUI  &kp SPACE    &trans    &kp RCTRL  &kp RET
+  &trans &bootloader &none        &kp LC(F) &kp LC(S) &kp LS(LG(S))       &kp ASTRK  &kp N7   &kp N8  &kp N9  &kp MINUS  &kp HOME
+  &trans   &sk LGUI &sk LEFT_ALT &sk LCTRL &sk LSHFT &kp LC(A)            &kp FSLH   &kp N4   &kp N5  &kp N6  &kp PLUS    &trans
+&kp LEFT_ALT &kp LC(Z) &kp LC(X)  &kp LC(C) &kp LC(V) &kp LC(Y)           &kp EQUAL  &kp N1   &kp N2  &kp N3  &kp N0    &trans
+                               &kp LGUI  &kp SPACE    &trans              &kp RCTRL  &kp RET
             >;
         };
 
         Nav {
             label = "Nav";
             bindings = <
-&trans      &kp EXCL       &kp AT    &kp HASH   &kp DLLR     &kp PRCNT    &bootloader   &kp AMPS  &kp KP_MULTIPLY  &kp LPAR  &kp RPAR    &kp DEL
-&trans    &bt BT_CLR   &bt BT_PRV  &bt BT_NXT     &trans         &to 3    &kp UNDER  &kp EQUAL         &kp LBKT  &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &out OUT_TOG  &bootloader      &trans     &trans        &trans    &kp MINUS   &kp PLUS         &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE
-                                     &kp LGUI  &kp SPACE  &kp LEFT_ALT       &trans    &bt BT_CLR
+&trans     &kp EXCL  &kp PG_UP &kp UP   &kp PG_DN  &none        &bootloader   &none   &kp RCTRL  &kp RALT  &tog QWERT    &kp DEL
+&trans    &kp HOME   &kp LEFT  &kp DOWN &kp RIGHT  &kp END      &to MAIN  &sk LSHFT   &sk LCTRL  &sk LEFT_ALT &sk LGUI   &kp GRAVE
+&trans    &kp GRAVE  &kp none  &kp none &kp TAB    &none        &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)  &kp TILDE
+                        &kp LGUI  &kp SPACE  &kp LEFT_ALT       &trans    &bt BT_CLR
+            >;
+        };
+
+        SYMB {
+            bindings = <
+   &kp ESC  &none  &none  &none  &auto_par         &kp LT         &kp GT   &none  &none  &none   &kp MINUS  &none
+   &none    &none  &none  &none  &none             &kp LPAR       &kp RPAR &none  &none  &none   &kp UNDER  &none
+   &none    &none  &none  &none  &none             &kp LBKT       &kp RBKT &none  &none  &kp SQT &kp EXCL   &none
+                                   &none  &none  &none          &trans  &trans
             >;
         };
 
         Func {
             label = "Func";
             bindings = <
-&trans  &trans  &trans  &trans  &trans        &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans         &sl 4      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans        &trans      &trans  &trans  &trans  &trans  &trans   &to 0
-                        &trans  &trans  &kp LEFT_ALT    &kp RGUI  &trans
+&trans  &kp F9  &kp F10  &kp F11  &kp F12    &none           &kp LC(T)  &kp LEFT         &mkp MCLK &kp RIGHT       &bt BT_PRV   &trans
+&trans  &kp F5  &kp F6   &kp F7   &kp F8     &none           &none      &mkp LCLK        &trans    &mkp RCLK       &bt BT_NXT   &trans
+&trans  &kp F1  &kp F2   &kp F3   &kp F4     &none           &kp LC(W)  &kp LS(LC(TAB))  &none     &kp LS(LC(TAB)) &bt BT_CLR   &to 0
+                        &trans  &trans  &kp LEFT_ALT         &kp RGUI  &trans
             >;
         };
 
@@ -129,10 +157,11 @@
         Mouse {
             bindings = <
    &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
+   &trans  &bt BT_CLR   &bt BT_PRV  &bt BT_NXT  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
 &mkp MCLK  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &mkp LCLK
                            &mkp LCLK  &trans  &mkp RCLK    &trans  &trans
             >;
         };
+
     };
 };
