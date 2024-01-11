@@ -148,7 +148,7 @@
             bindings = <
 &trans  &kp F9  &kp F10  &kp F11  &kp F12    &none           &kp LC(T)  &kp LEFT         &mkp MCLK &kp RIGHT       &bt BT_PRV   &trans
 &trans  &kp F5  &kp F6   &kp F7   &kp F8     &none           &none      &mkp LCLK        &trans    &mkp RCLK       &bt BT_NXT   &trans
-&trans  &kp F1  &kp F2   &kp F3   &kp F4     &none           &kp LC(W)  &kp LC(TAB)      &none     &kp LS(LC(TAB)) &bt BT_CLR   &to 0
+&trans  &kp F1  &kp F2   &kp F3   &kp F4     &none           &kp LC(W)  &kp LS(LC(TAB))      &none     &kp LC(TAB) &bt BT_CLR   &to 0
                         &trans  &trans  &kp LEFT_ALT         &kp RGUI  &trans
             >;
         };
