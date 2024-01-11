@@ -27,19 +27,19 @@
 
 
         combo_change {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             bindings = <&lan_chan>;
             key-positions = <26 27>;
         };
 
         combo_lck {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             bindings = <&mkp LCLK>;
             key-positions = <20 21>;
         };
 
         combo_rck {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             bindings = <&mkp RCLK>;
             key-positions = <22 23>;
         };
@@ -61,7 +61,7 @@
             label = "ZM_lan_chan";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap &kp CAPS &tog QWERT>
+                <&macro_tap &kp RALT &tog QWERT>
                 ;
         };
 
@@ -129,9 +129,9 @@
             label = "SYMB";
             bindings = <
    &kp ESC  &none  &none  &none  &auto_par         &kp LT         &kp GT   &none  &none  &none   &kp MINUS  &none
-   &none    &none  &none  &none  &none             &kp LPAR       &kp RPAR &none  &none  &none   &kp UNDER  &none
+   &none    &none  &none  &none  &none             &kp LPAR       &kp RPAR &none  &none  &none   &kp SEMI  &none
    &none    &none  &none  &none  &none             &kp LBKT       &kp RBKT &none  &none  &kp SQT &kp EXCL   &none
-                                   &none  &none  &none          &trans  &trans
+                                   &kp LSHFT  &none  &none        &trans  &trans
             >;
         };
 
