@@ -11,6 +11,7 @@
 #define NAV   3
 #define SYMB  4
 #define FUNC  5
+#define MOUSE 6
 
 
 &lt {
@@ -35,6 +36,12 @@
         combo_lck {
             timeout-ms = <100>;
             bindings = <&mkp LCLK>;
+            key-positions = <20 21>;
+        };
+
+        combo_DGSK {
+            timeout-ms = <100>;
+            bindings = <&mo MOUSE>;
             key-positions = <20 21>;
         };
 
@@ -145,6 +152,15 @@
             >;
         };
 
+        Mouse {
+            bindings = <
+   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
+   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
+   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
+                              &trans  &trans     &trans    &trans  &trans
+            >;
+        };
+
         Game_++ {
             label = "Game ++";
             bindings = <
@@ -155,14 +171,6 @@
             >;
         };
 
-        Mouse {
-            bindings = <
-   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-   &trans  &bt BT_CLR   &bt BT_PRV  &bt BT_NXT  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-&mkp MCLK  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &mkp LCLK
-                           &mkp LCLK  &trans  &mkp RCLK    &trans  &trans
-            >;
-        };
 
     };
 };
