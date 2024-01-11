@@ -47,7 +47,7 @@
         combo_change {
             timeout-ms = <100>;
             bindings = <&lan_chan>;
-            key-positions = <26 27>;
+            key-positions = <25 26>;
         };
 
 
