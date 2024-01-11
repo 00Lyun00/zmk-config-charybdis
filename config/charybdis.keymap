@@ -66,10 +66,10 @@
             compatible = "zmk,behavior-macro";
             label = "ZM_lan_chan";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press &tog QWERT>
-                <&macro_tap &kp RALT>
-                <&macro_release &tog QWERT>
+            bindings 
+                = <&macro_press &tog QWERT>
+                , <&macro_tap &kp RALT>
+                , <&macro_release &tog QWERT>
                 ;
         };
 
