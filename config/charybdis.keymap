@@ -107,11 +107,10 @@
             label = "ZM_auto_bkt";
             #binding-cells = <0>;
             bindings
-                =<&macro_tap &kp LBKT &kp RBKT>
-                ,<&macro_press &kp LSHFT &kp LCTRL>
+                = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>
+                , <&macro_press &kp LSHFT &kp LCTRL>
                 , <&macro_tap &kp HOME>
                 , <&macro_release &kp LSHFT &kp LCTRL>
-                ,<&macro_tap &kp LEFT>
                 ;
         };
 
