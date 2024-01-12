@@ -83,6 +83,16 @@
                 ;
         };
 
+// automatically write two brackets
+        auto_brak: auto_brak {
+            compatible = "zmk,behavior-macro";
+            label = "ZM_auto_par";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &kp LBKT &kp RBKT &kp LEFT>
+                ;
+        };
+
 
 //end of macro list
     };
