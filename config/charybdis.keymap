@@ -108,9 +108,16 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>
-                , <&macro_press &kp LSHFT &kp LCTRL>
-                , <&macro_tap &kp HOME>
-                , <&macro_release &kp LSHFT &kp LCTRL>
+                ;
+        };
+
+// automatically write two chevrons
+        auto_chv: auto_chv {
+            compatible = "zmk,behavior-macro";
+            label = "ZM_auto_bkt";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LT &kp GT &kp LEFT>
                 ;
         };
 
@@ -160,16 +167,16 @@
 &trans    &kp EXCL   &kp PG_UP &kp UP   &kp PG_DN  &none        &bootloader   &none   &kp RCTRL  &kp RALT  &tog QWERT    &kp DEL
 &trans    &kp HOME   &kp LEFT  &kp DOWN &kp RIGHT  &kp END      &to MAIN  &sk LSHFT   &sk LCTRL  &sk LEFT_ALT &sk LGUI   &kp GRAVE
 &trans    &kp GRAVE  &none     &none    &kp TAB    &none        &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)  &kp TILDE
-                        &kp LGUI  &kp SPACE  &kp LEFT_ALT       &trans    &bt BT_CLR
+                        &kp BSPC  &kp SPACE  &kp RET            &trans    &bt BT_CLR
             >;
         };
 
         SYMB {
             label = "SYMB";
             bindings = <
-   &none    &kp ESC  &none  &none   &none  &none                  &kp LT    &none      &kp GT   &none   &kp MINUS  &none
+   &none    &kp ESC  &none  &none   &none  &none                  &kp LT    &auto_chv  &kp GT   &none   &kp MINUS  &none
    &none    &sk LGUI &sk LEFT_ALT &sk LCTRL &sk LSHFT  &none      &kp LPAR  &auto_par  &kp RPAR &none   &kp SEMI   &none
-   &none    &none    &none  &none   &none  &none                  &kp LBKT  &auto_bkt &kp RBKT &kp SQT &kp EXCL   &none
+   &none    &none    &none  &none   &none  &none                  &kp LBKT  &auto_bkt  &kp RBKT &kp SQT &kp EXCL   &none
                                    &kp LSHFT  &none  &none        &trans  &trans
             >;
         };
