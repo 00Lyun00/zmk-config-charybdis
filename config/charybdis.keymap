@@ -26,19 +26,19 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_alt {
+        combo_callumalt {
             timeout-ms = <50>;
             bindings = <&mkp LALT>;
             key-positions = <13 14>;
         };
 
-        combo_ctl {
+        combo_callumctl {
             timeout-ms = <50>;
             bindings = <&kp LCTRL>;
             key-positions = <14 15>;
         };
 
-        combo_shft {
+        combo_callumshft {
             timeout-ms = <50>;
             bindings = <&kp LSHFT>;
             key-positions = <15 16>;
@@ -100,19 +100,6 @@
                 <&macro_tap &kp LPAR &kp RPAR &kp LEFT>
                 ;
         };
-
-// automatically write two brackets
-//        auto_bkt: auto_bkt {
-//            compatible = "zmk,behavior-macro";
-//            label = "ZM_auto_bkt";
-//            #binding-cells = <0>;
-//            bindings
-//                = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>
-//                , <&macro_press &kp LSHFT &kp LCTRL>
-//                , <&macro_tap &kp HOME>
-//                , <&macro_release &kp LSHFT &kp LCTRL>
-//                ;
-//        };
 
 
 //end of macro list
@@ -178,7 +165,7 @@
             label = "Func";
             bindings = <
 &none  &kp F9  &kp F10  &kp F11  &kp F12    &none           &kp LC(T)     &kp LEFT        &none     &kp RIGHT       &bt BT_PRV   &none
-&none  &kp F5  &kp F6   &kp F7   &kp F8     &none           &kp LA(LEFT)  &none           &mkp MCLK &kp LA(RIGHT)   &bt BT_NXT   &none
+&none  &kp F5  &kp F6   &kp F7   &kp F8     &none           &none         &kp LA(LEFT)    &mkp MCLK &kp LA(RIGHT)   &bt BT_NXT   &none
 &none  &kp F1  &kp F2   &kp F3   &kp F4     &none           &kp LC(W)     &kp LS(LC(TAB)) &none     &kp LC(TAB)     &bt BT_CLR   &none
                         &none  &none  &kp LEFT_ALT         &kp RGUI  &none
             >;
