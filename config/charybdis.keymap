@@ -114,7 +114,7 @@
 // automatically write two chevrons
         auto_chv: auto_chv {
             compatible = "zmk,behavior-macro";
-            label = "ZM_auto_bkt";
+            label = "ZM_auto_chv";
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp LT &kp GT &kp LEFT>
