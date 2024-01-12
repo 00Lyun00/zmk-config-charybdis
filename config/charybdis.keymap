@@ -26,6 +26,24 @@
     combos {
         compatible = "zmk,combos";
 
+        combo_alt {
+            timeout-ms = <50>;
+            bindings = <&mkp LALT>;
+            key-positions = <13 14>;
+        };
+
+        combo_ctl {
+            timeout-ms = <50>;
+            bindings = <&kp LCTRL>;
+            key-positions = <14 15>;
+        };
+
+        combo_shft {
+            timeout-ms = <50>;
+            bindings = <&kp LSHFT>;
+            key-positions = <15 16>;
+        };
+
         combo_lck {
             timeout-ms = <50>;
             bindings = <&mkp LCLK>;
@@ -83,6 +101,20 @@
                 ;
         };
 
+// automatically write two brackets
+        auto_bkt: auto_bkt {
+            compatible = "zmk,behavior-macro";
+            label = "ZM_auto_bkt";
+            #binding-cells = <0>;
+            bindings
+                =<&macro_tap &kp LBKT &kp RBKT>
+                ,<&macro_press &kp LSHFT &kp LCTRL>
+                , <&macro_tap &kp HOME>
+                , <&macro_release &kp LSHFT &kp LCTRL>
+                ,<&macro_tap &kp LEFT>
+                ;
+        };
+
 
 //end of macro list
     };
@@ -96,9 +128,9 @@
         Main {
             label = "Main";
             bindings = <
-  &kp TAB  &kp Q  &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp SEMI    &kp BSPC
-  &kp ESC  &kp A  &kp R      &kp S      &kp T  &kp G           &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
-&kp LSHFT  &kp Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
+&none  &kp Q  &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp SEMI    &none
+&none  &kp A  &kp R      &kp S      &kp T  &kp G           &kp M    &kp N      &kp E    &kp I  &kp O    &none
+&none  &kp Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &none
                      &kp LSHFT  &lt NUM SPACE  &lt SYMB DEL    &lt NAV BSPC  &lt FUNC RET
             >;
         };
@@ -106,9 +138,9 @@
         Qwert {
             label = "Qwert";
             bindings = <
-  &kp TAB  &kp Q  &kp W      &kp E      &kp R  &kp T    &kp Y    &kp U      &kp I    &kp O     &kp P    &kp BSPC
-  &kp ESC  &kp A  &kp S      &kp D      &kp F  &kp G    &kp H    &kp J      &kp K    &kp L  &kp SEMI    &kp APOS
-&kp LSHFT  &kp Z  &kp X      &kp C      &kp V  &kp B    &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
+&none  &kp Q  &kp W      &kp E      &kp R  &kp T    &kp Y    &kp U      &kp I    &kp O     &kp P    &none
+&none  &kp A  &kp S      &kp D      &kp F  &kp G    &kp H    &kp J      &kp K    &kp L  &kp SEMI    &none
+&none  &kp Z  &kp X      &kp C      &kp V  &kp B    &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
                              &trans    &trans  &trans   &trans   &trans
             >;
         };
@@ -116,9 +148,9 @@
         Num {
             label = "Num";
             bindings = <
-  &trans &bootloader &none        &kp LC(F) &kp LC(S) &kp LS(LG(S))       &kp ASTRK  &kp N7   &kp N8  &kp N9  &kp MINUS  &kp HOME
-  &trans   &sk LGUI &sk LEFT_ALT &sk LCTRL &sk LSHFT &kp LC(A)            &kp FSLH   &kp N4   &kp N5  &kp N6  &kp PLUS    &trans
-&kp LEFT_ALT &kp LC(Z) &kp LC(X)  &kp LC(C) &kp LC(V) &kp LC(Y)           &kp EQUAL  &kp N1   &kp N2  &kp N3  &kp N0    &trans
+&none &bootloader &none        &kp LC(F) &kp LC(S) &kp LS(LG(S))       &kp ASTRK  &kp N7   &kp N8  &kp N9  &kp MINUS  &none
+&none   &sk LGUI &sk LEFT_ALT &sk LCTRL &sk LSHFT &kp LC(A)            &kp FSLH   &kp N4   &kp N5  &kp N6  &kp PLUS    &none
+&none LEFT_ALT &kp LC(Z) &kp LC(X)  &kp LC(C) &kp LC(V) &kp LC(Y)           &kp EQUAL  &kp N1   &kp N2  &kp N3  &kp N0    &none
                                &kp LGUI  &kp SPACE    &trans              &kp RCTRL  &kp RET
             >;
         };
@@ -126,30 +158,30 @@
         Nav {
             label = "Nav";
             bindings = <
-&trans    &kp EXCL   &kp PG_UP &kp UP   &kp PG_DN  &none        &bootloader   &none   &kp RCTRL  &kp RALT  &tog QWERT    &kp DEL
-&trans    &kp HOME   &kp LEFT  &kp DOWN &kp RIGHT  &kp END      &to MAIN  &sk LSHFT   &sk LCTRL  &sk LEFT_ALT &sk LGUI   &kp GRAVE
-&trans    &kp GRAVE  &none     &none    &kp TAB    &none        &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)  &kp TILDE
-                        &kp LGUI  &kp SPACE  &kp LEFT_ALT       &trans    &bt BT_CLR
+&none    &kp EXCL   &kp PG_UP &kp UP   &kp PG_DN  &none        &bootloader   &none   &kp RCTRL  &kp RALT  &tog QWERT    &none
+&none    &kp HOME   &kp LEFT  &kp DOWN &kp RIGHT  &kp END      &to MAIN  &sk LSHFT   &sk LCTRL  &sk LEFT_ALT &sk LGUI   &none
+&none    &kp GRAVE  &none     &none    &kp TAB    &none        &kp LC(Y) &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z)  &none
+                        &kp LGUI  &kp SPACE  &kp RET            &none    &bt BT_CLR
             >;
         };
 
         SYMB {
             label = "SYMB";
             bindings = <
-   &kp ESC  &none  &none  &none  &auto_par         &kp LT         &kp GT   &none  &none  &none   &kp MINUS  &none
-   &none    &none  &none  &none  &none             &kp LPAR       &kp RPAR &none  &none  &none   &kp SEMI  &none
-   &lan_chan    &none  &none  &none  &none         &kp LBKT       &kp RBKT &none  &none  &kp SQT &kp EXCL   &none
-                                   &kp LSHFT  &none  &none        &trans  &trans
+&none  &none  &none  &none  &auto_par    &none                   &kp LT   &none     &kp GT    &none   &kp MINUS  &none
+&none  &sk LGUI &sk LEFT_ALT &sk LCTRL &sk LSHFT  &none          &kp LPAR &auto_par &kp RPAR  &none   &kp SEMI   &none
+&none  &none  &none  &none  &none        &none                   &kp LBKT &auto_bkt &kp RBKT  &kp SQT &kp EXCL   &none
+                                   &kp LSHFT  &none  &none        &none  &none
             >;
         };
 
         Func {
             label = "Func";
             bindings = <
-&trans  &kp F9  &kp F10  &kp F11  &kp F12    &none           &kp LC(T)  &kp LEFT         &mkp MCLK &kp RIGHT       &bt BT_PRV   &trans
-&trans  &kp F5  &kp F6   &kp F7   &kp F8     &none           &none      &mkp LCLK        &trans    &mkp RCLK       &bt BT_NXT   &trans
-&trans  &kp F1  &kp F2   &kp F3   &kp F4     &none           &kp LC(W)  &kp LS(LC(TAB))      &none     &kp LC(TAB) &bt BT_CLR   &to 0
-                        &trans  &trans  &kp LEFT_ALT         &kp RGUI  &trans
+&none  &kp F9  &kp F10  &kp F11  &kp F12    &none           &kp LC(T)     &kp LEFT        &none     &kp RIGHT       &bt BT_PRV   &none
+&none  &kp F5  &kp F6   &kp F7   &kp F8     &none           &kp LA(LEFT)  &none           &mkp MCLK &kp LA(RIGHT)   &bt BT_NXT   &none
+&none  &kp F1  &kp F2   &kp F3   &kp F4     &none           &kp LC(W)     &kp LS(LC(TAB)) &none     &kp LC(TAB)     &bt BT_CLR   &none
+                        &none  &none  &kp LEFT_ALT         &kp RGUI  &none
             >;
         };
 
