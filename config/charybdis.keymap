@@ -102,17 +102,17 @@
         };
 
 // automatically write two brackets
-        auto_bkt: auto_bkt {
-            compatible = "zmk,behavior-macro";
-            label = "ZM_auto_bkt";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>
-                , <&macro_press &kp LSHFT &kp LCTRL>
-                , <&macro_tap &kp HOME>
-                , <&macro_release &kp LSHFT &kp LCTRL>
-                ;
-        };
+//        auto_bkt: auto_bkt {
+//            compatible = "zmk,behavior-macro";
+//            label = "ZM_auto_bkt";
+//            #binding-cells = <0>;
+//            bindings
+//                = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>
+//                , <&macro_press &kp LSHFT &kp LCTRL>
+//                , <&macro_tap &kp HOME>
+//                , <&macro_release &kp LSHFT &kp LCTRL>
+//                ;
+//        };
 
 
 //end of macro list
@@ -169,7 +169,7 @@
             bindings = <
 &none  &none  &none  &none  &auto_par    &none                   &kp LT   &none     &kp GT    &none   &kp MINUS  &none
 &none  &sk LGUI &sk LEFT_ALT &sk LCTRL &sk LSHFT  &none          &kp LPAR &auto_par &kp RPAR  &none   &kp SEMI   &none
-&none  &none  &none  &none  &none        &none                   &kp LBKT &auto_bkt &kp RBKT  &kp SQT &kp EXCL   &none
+&none  &none  &none  &none  &none        &none                   &kp LBKT &none &kp RBKT  &kp SQT &kp EXCL   &none
                                    &kp LSHFT  &none  &none        &none  &none
             >;
         };
