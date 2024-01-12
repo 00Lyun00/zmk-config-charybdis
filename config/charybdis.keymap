@@ -26,6 +26,24 @@
     combos {
         compatible = "zmk,combos";
 
+        combo_alt {
+            timeout-ms = <50>;
+            bindings = <&kp LALT>;
+            key-positions = <13 14>;
+        };
+
+        combo_ctrl {
+            timeout-ms = <50>;
+            bindings = <&kp LCTRL>;
+            key-positions = <14 15>;
+        };
+
+        combo_shift {
+            timeout-ms = <50>;
+            bindings = <&kp LSHFT>;
+            key-positions = <15 16>;
+        };
+
         combo_lck {
             timeout-ms = <50>;
             bindings = <&mkp LCLK>;
