@@ -141,7 +141,7 @@
             label = "ZM_auto_sqt";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp sqt &kp sqt &sqt LEFT>
+                = <&macro_tap &kp SQT &kp SQT &kp LEFT>
                 ;
         };
 
