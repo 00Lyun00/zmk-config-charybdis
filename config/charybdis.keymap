@@ -18,8 +18,8 @@
 &lt {
     tapping-term-ms = <240>;
     flavor = "hold-preferred";
-    quick-tap-ms = <150>;
-    require-prior-idle-ms = <125>;
+    quick-tap-ms = <50>;
+    require-prior-idle-ms = <25>;
 };
 
 
@@ -183,7 +183,7 @@
   &trans   &kp LC(B) &none       &kp LC(F) &kp LC(S) &kp LS(LG(S))        &kp ASTRK  &kp N7   &kp N8  &kp N9  &kp MINUS  &kp HOME
   &trans   &sk LGUI &sk LEFT_ALT &sk LCTRL &sk LSHFT &kp LC(A)            &kp FSLH   &kp N4   &kp N5  &kp N6  &kp PLUS    &trans
 &kp LEFT_ALT &kp LC(Z) &kp LC(X)  &kp LC(C) &kp LC(V) &kp LC(Y)           &kp EQUAL  &kp N1   &kp N2  &kp N3  &kp N0    &trans
-                               &kp LGUI  &kp SPACE    &trans              &kp RCTRL  &kp RET
+                               &kp LGUI  &kp SPACE    &trans              &kp BSPC  &kp DOT
             >;
         };
 
