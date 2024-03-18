@@ -210,9 +210,9 @@
         Func {
             label = "Func";
             bindings = <
-&trans  &kp F9  &kp F10  &kp F11  &kp F12    &kp C_VOL_UP    &kp LC(T)  &kp LEFT         &kp LC(L) &kp RIGHT     &kp LA(F4) &none
+&trans  &kp F9  &kp F10  &kp F11  &kp F12    &kp C_VOL_UP    &kp LC(T)  &kp LEFT         &kp LC(L) &kp RIGHT     &none      &none
 &trans  &kp F5  &kp F6   &kp F7   &kp F8     &kp C_MUTE      &kp F5     &kp LA(LEFT)     &mkp MCLK &kp LA(RIGHT) &none      &none
-&trans  &kp F1  &kp F2   &kp F3   &kp F4     &kp C_VOL_DN    &kp LC(W)  &kp LS(LC(TAB))  &none     &kp LC(TAB)   &none      &none
+&trans  &kp F1  &kp F2   &kp F3   &kp F4     &kp C_VOL_DN    &kp LC(W)  &kp LS(LC(TAB))  &none     &kp LC(TAB)   &kp LA(F4) &none
                   &bt BT_PRV  &bt BT_CLR  &bt BT_NXT         &kp RGUI  &trans
             >;
         };
