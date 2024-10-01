@@ -147,6 +147,20 @@
                 ;
         };
 
+// automatically write two quotations
+        temp: temp {
+            compatible = "zmk,behavior-macro";
+            label = "ZM_temp";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N6>
+                , <&macro_release &kp LALT>
+
+                ;
+        };
+
+
 
 //end of macro list
     };
@@ -200,7 +214,7 @@
         SYMB {
             label = "SYMB";
             bindings = <
-   &none    &kp ESC  &none  &none   &none  &none                  &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
+   &none    &kp ESC  &none  &none   &none  &temp                  &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
    &none    &kp LALT  &kp LS(TAB)   &none  &kp TAB  &kp LG(V)     &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
    &none    &none    &none  &none   &none  &none                  &kp LBKT  &auto_bkt  &kp RBKT &auto_dqt &kp EXCL   &none
                                    &none  &none  &none            &none     &none
