@@ -215,7 +215,7 @@
             label = "SYMB";
             bindings = <
    &none    &kp ESC  &kp LS(TAB) &kp LALT  &kp TAB   &none        &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
-   &none    &none    &none  &kp LG(V)   &sk LSHFT &none           &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
+   &none    &none    &none  &none   &sk LSHFT &kp LG(V)           &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
    &none    &none    &none  &none   &tempsym  &none               &kp LBKT  &auto_bkt  &kp RBKT &auto_dqt &kp EXCL   &none
                                    &none  &none  &none            &none     &none
             >;
