@@ -184,7 +184,7 @@
         Main {
             label = "Main";
             bindings = <
-  &kp TAB  &kp Q  &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp SEMI    &kp BSPC
+  &kp TAB  &kp Q  &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp MINUS  &kp BSPC
   &kp ESC  &kp A  &kp R      &kp S      &kp T  &kp G           &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
 &kp LSHFT  &kp Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
                      &kp LSHFT  &lt NUM SPACE  &lt SYMB DEL    &lt NAV BSPC  &lt FUNC RET
@@ -224,8 +224,8 @@
         SYMB {
             label = "SYMB";
             bindings = <
-   &none    &kp ESC  &kp LS(TAB) &kp LALT  &kp TAB   &none        &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
-   &none    &tempsym    &auto_elp &kp LG(V)    &none             &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
+   &none    &kp ESC  &kp LS(TAB) &kp LALT  &kp TAB   &none       &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
+   &none    &none    &tempsym    &auto_elp &kp LG(V) &none       &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
    &none    &none    &none  &none   &none    &none               &kp LBKT  &auto_bkt  &kp RBKT &auto_dqt &kp EXCL   &none
                                    &none  &none  &none            &none     &none
             >;
