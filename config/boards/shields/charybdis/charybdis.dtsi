@@ -66,6 +66,30 @@
     };
 };
 
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        trackball: trackball@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+            spi-max-frequency = <2000000>;
+            irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            scroll-layers = <6>;
+            // snipe-layers = <>;
+            // automouse-layer = <>;
+        };
+    };
+
+    pmw3610_listener: pmw3610_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&trackball>;
+    };
+};
+
+
 nice_view_spi: &spi3 {
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi3_default>;
