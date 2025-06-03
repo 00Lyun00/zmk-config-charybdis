@@ -16,3 +16,7 @@
 		, <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 		;
 };
+
+&pmw3610_listener {
+    status = "okay";
+};
