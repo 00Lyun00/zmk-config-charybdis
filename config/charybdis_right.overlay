@@ -37,8 +37,10 @@
     };
 };
 
-// Overrides for the input-split child node
-&trackball {
+/ {
+  pmw3610_listener {
+    compatible = "zmk,input-listener";
     device = <&trackball>;
-};
 
+  };
+};
