@@ -34,7 +34,7 @@
         combo_main {
             timeout-ms = <50>;
             bindings = <&to MAIN>;
-            key-positions = <13 17>;
+            key-positions = <1 4>;
         };
 
         combo_alt {
