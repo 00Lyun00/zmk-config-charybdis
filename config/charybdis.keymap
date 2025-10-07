@@ -13,6 +13,7 @@
 #define SYMB  4
 #define FUNC  5
 #define MOUSE 6
+#define EXTRA 7
 
 
 &lt {
@@ -254,7 +255,15 @@
             >;
         };
 
-
+        Extra {
+            label = "EXTR";
+            bindings = <
+   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
+   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
+   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
+                              &trans  &trans     &trans    &trans  &trans
+            >;
+        };
 
 
     };
