@@ -15,8 +15,6 @@
 #define SLCT  6
 #define HANDY 7
 
-#define MEH(key) LA(LS(LC(key)))
-
 &lt {
     tapping-term-ms = <150>;
     flavor = "balanced";
