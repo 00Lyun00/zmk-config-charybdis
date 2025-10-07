@@ -12,9 +12,10 @@
 #define NAV   3
 #define FUNC  4
 #define SYMB  5
-#define MOUSE 6
+#define SLCT  6
+#define HANDY 7
 
-
+#define MEH(key) LA(LS(LC(key)))
 
 &lt {
     tapping-term-ms = <150>;
@@ -190,17 +191,17 @@
         compatible = "zmk,keymap";
 
         Main {
-            label = "Main";
+            label = "MAIN";
             bindings = <
-  &kp TAB  &kp Q  &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp MINUS  &kp BSPC
-  &kp ESC  &kp A  &kp R      &kp S      &kp T  &kp G           &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
-&kp LSHFT  &kp Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
-                     &kp LSHFT  &lt NUM SPACE  &lt FUNC DEL    &lt NAV BSPC  &lt SYMB RET
+  &kp TAB  &kp Q        &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp MINUS  &kp BSPC
+  &kp ESC  &lt SLCT A   &kp R      &kp S      &kp T  &kp G           &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
+&kp LSHFT  &lt HANDY Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
+                     &kp LSHFT  &lt NUM SPACE  &lt FUNC DEL          &lt NAV BSPC  &lt SYMB RET
             >;
         };
 
         Qwert {
-            label = "Qwert";
+            label = "QWER";
             bindings = <
   &kp TAB  &kp Q  &kp W      &kp E      &kp R  &kp T    &kp Y    &kp U      &kp I    &kp O     &kp P    &kp BSPC
   &kp ESC  &kp A  &kp S      &kp D      &kp F  &kp G    &kp H    &kp J      &kp K    &kp L  &kp SEMI    &kp APOS
@@ -210,7 +211,7 @@
         };
 
         Num {
-            label = "Num";
+            label = "NUM";
             bindings = <
   &trans   &kp LC(B) &kp LC(O)   &kp LC(F) &kp LC(S) &kp LS(LG(S))        &kp ASTRK  &kp N7   &kp N8  &kp N9  &kp MINUS  &kp HOME
   &trans   &kp LGUI &sk LEFT_ALT &sk LCTRL &sk LSHFT &kp LC(A)            &kp FSLH   &kp N4   &kp N5  &kp N6  &kp PLUS    &trans
@@ -220,7 +221,7 @@
         };
 
         Nav {
-            label = "Nav";
+            label = "NAV";
             bindings = <
 &trans    &kp EXCL   &kp PG_UP &kp UP   &kp PG_DN  &kp LS(LA(TAB))     &bootloader   &none   &kp RCTRL  &kp RALT  &tog QWERT    &kp DEL
 &trans    &kp HOME   &kp LEFT  &kp DOWN &kp RIGHT  &kp END             &to MAIN  &sk LSHFT   &sk LCTRL  &sk LEFT_ALT &sk LGUI   &kp GRAVE
@@ -231,7 +232,7 @@
 
 
         Func {
-            label = "Func";
+            label = "FUNC";
             bindings = <
 &trans  &kp F9  &kp F10  &kp F11  &kp F12    &kp C_VOL_UP        &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
 &trans  &kp F5  &kp F6   &kp F7   &kp F8     &kp C_MUTE          &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
@@ -241,7 +242,7 @@
         };
 
 
-        SYMB {
+        Symb {
             label = "SYMB";
             bindings = <
    &none    &kp ESC  &kp LS(TAB) &kp LALT  &kp TAB &kp LC(LS(S))     &kp LC(T)  &kp LEFT         &kp LC(L) &kp RIGHT     &none      &none
@@ -252,13 +253,24 @@
         };
 
 
-        Mouse {
-            label = "Mouse";
+        Slct {
+            label = "SLCT";
             bindings = <
-   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-                              &trans  &trans     &trans    &trans  &trans
+   &none   &none  &kp MEH(W)  &kp MEH(F)  &kp MEH(P)  &kp MEH(B)   &none &none &none &none &none &none
+   &none   &none  &kp MEH(R)  &kp MEH(S)  &kp MEH(T)  &kp MEH(G)   &none &none &none &none &none &none
+   &none   &none  &kp MEH(X)  &kp MEH(C)  &kp MEH(D)  &kp MEH(V)   &none &none &none &none &none &none
+                              &kp MEH(Q)  &kp MEH(A)  &kp MEH(Z)   &none   &none
+            >;
+        };
+
+
+        Handy {
+            label = "HAND";
+            bindings = <
+   &trans  &trans  &kp F17     &kp F18     &kp F19     &kp LT       &none &none &none &none &none &none
+   &trans  &trans  &kp F16     &kp LBKT     &kp RBKT    &kp TILDE   &none &none &none &none &none &none
+   &trans  &trans  &kp F13     &kp F14     &kp F15     &kp GT       &none &none &none &none &none &none
+                              &none   &to MAIN   &none                 &none   &none
             >;
         };
 
