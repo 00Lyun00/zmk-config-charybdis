@@ -10,8 +10,8 @@
 #define QWERT 1
 #define NUM   2
 #define NAV   3
-#define SYMB  4
-#define FUNC  5
+#define FUNC  4
+#define SYMB  5
 #define MOUSE 6
 
 
