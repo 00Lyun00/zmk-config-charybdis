@@ -12,7 +12,7 @@
 #define NAV   3
 #define SYMB  4
 #define FUNC  5
-#define MOUSE 6
+#define HANDY 6
 
 
 &lt {
@@ -244,8 +244,8 @@
         };
 
 
-        Mouse {
-            label = "Mouse";
+        Handy {
+            label = "HANDY";
             bindings = <
    &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
    &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
