@@ -15,6 +15,7 @@
 #define MOUSE 6
 
 
+
 &lt {
     tapping-term-ms = <150>;
     flavor = "balanced";
@@ -232,9 +233,9 @@
         Func {
             label = "Func";
             bindings = <
-&trans  &kp F9  &kp F10  &kp F11  &kp F12    &kp C_VOL_UP        &kp LC(T)  &kp LEFT         &kp LC(L) &kp RIGHT     &none      &none
-&trans  &kp F5  &kp F6   &kp F7   &kp F8     &kp C_MUTE          &kp F5     &kp LA(LEFT)     &mkp MCLK &kp LA(RIGHT) &none      &none
-&trans  &kp F1  &kp F2   &kp F3   &kp F4     &kp C_VOL_DN        &kp LC(W)  &kp LS(LC(TAB))  &none     &kp LC(TAB)   &kp LA(F4) &none
+&trans  &kp F9  &kp F10  &kp F11  &kp F12    &kp C_VOL_UP        &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
+&trans  &kp F5  &kp F6   &kp F7   &kp F8     &kp C_MUTE          &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
+&trans  &kp F1  &kp F2   &kp F3   &kp F4     &kp C_VOL_DN        &kp LBKT  &auto_bkt  &kp RBKT &auto_dqt &kp EXCL   &none
                                   &none      &none  &none        &none  &none
             >;
         };
@@ -243,9 +244,9 @@
         SYMB {
             label = "SYMB";
             bindings = <
-   &none    &kp ESC  &kp LS(TAB) &kp LALT  &kp TAB &kp LC(LS(S))     &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
-   &none    &kp LC(SEMI)  &tempsym &auto_elp &sk LSHFT &kp LG(V)     &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
-   &none    &none    &none  &none   &none    &none                   &kp LBKT  &auto_bkt  &kp RBKT &auto_dqt &kp EXCL   &none
+   &none    &kp ESC  &kp LS(TAB) &kp LALT  &kp TAB &kp LC(LS(S))     &kp LC(T)  &kp LEFT         &kp LC(L) &kp RIGHT     &none      &none
+   &none    &kp LC(SEMI)  &tempsym &auto_elp &sk LSHFT &kp LG(V)     &kp F5     &kp LA(LEFT)     &mkp MCLK &kp LA(RIGHT) &none      &none
+   &none    &none    &none  &none   &none    &none                   &kp LC(W)  &kp LS(LC(TAB))  &none     &kp LC(TAB)   &kp LA(F4) &none
                                    &bt BT_PRV  &none  &bt BT_NXT     &bt BT_CLR     &none
             >;
         };
