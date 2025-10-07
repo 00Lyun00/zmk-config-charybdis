@@ -28,6 +28,12 @@
     combos {
         compatible = "zmk,combos";
 
+        combo_esc {
+            timeout-ms = <50>;
+            bindings = <&kp ESC>;
+            key-positions = <1 2>;
+        };
+
         combo_alt {
             timeout-ms = <50>;
             bindings = <&kp LALT>;
@@ -147,13 +153,14 @@
                 ;
         };
 
-// automatically write two quotations
+// automatically write temperature symbol
         tempsym: tempsym {
             compatible = "zmk,behavior-macro";
             label = "ZM_tempsymi";
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LALT>
+                , <&macro_wait_time 20>
                 , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N6>
                 , <&macro_release &kp LALT>
 
@@ -187,7 +194,7 @@
   &kp TAB  &kp Q  &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp MINUS  &kp BSPC
   &kp ESC  &kp A  &kp R      &kp S      &kp T  &kp G           &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
 &kp LSHFT  &kp Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
-                     &kp LSHFT  &lt NUM SPACE  &lt SYMB DEL    &lt NAV BSPC  &lt FUNC RET
+                     &kp LSHFT  &lt NUM SPACE  &lt FUNC DEL    &lt NAV BSPC  &lt SYMB RET
             >;
         };
 
@@ -221,15 +228,6 @@
             >;
         };
 
-        SYMB {
-            label = "SYMB";
-            bindings = <
-   &none    &kp ESC  &kp LS(TAB) &kp LALT  &kp TAB &kp LC(LS(S)) &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
-   &none    &kp LC(SEMI)  &tempsym &auto_elp &sk LSHFT &kp LG(V) &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
-   &none    &none    &none  &none   &none    &none               &kp LBKT  &auto_bkt  &kp RBKT &auto_dqt &kp EXCL   &none
-                                   &none  &none  &none            &none     &none
-            >;
-        };
 
         Func {
             label = "Func";
@@ -237,9 +235,21 @@
 &trans  &kp F9  &kp F10  &kp F11  &kp F12    &kp C_VOL_UP        &kp LC(T)  &kp LEFT         &kp LC(L) &kp RIGHT     &none      &none
 &trans  &kp F5  &kp F6   &kp F7   &kp F8     &kp C_MUTE          &kp F5     &kp LA(LEFT)     &mkp MCLK &kp LA(RIGHT) &none      &none
 &trans  &kp F1  &kp F2   &kp F3   &kp F4     &kp C_VOL_DN        &kp LC(W)  &kp LS(LC(TAB))  &none     &kp LC(TAB)   &kp LA(F4) &none
-                  &bt BT_PRV      &none  &bt BT_NXT             &bt BT_CLR  &trans
+                                  &none      &none  &none        &none  &none
             >;
         };
+
+
+        SYMB {
+            label = "SYMB";
+            bindings = <
+   &none    &kp ESC  &kp LS(TAB) &kp LALT  &kp TAB &kp LC(LS(S))     &kp LT    &auto_chv  &kp GT   &auto_sqt &kp MINUS  &none
+   &none    &kp LC(SEMI)  &tempsym &auto_elp &sk LSHFT &kp LG(V)     &kp LPAR  &auto_par  &kp RPAR &kp SQT   &kp SEMI   &none
+   &none    &none    &none  &none   &none    &none                   &kp LBKT  &auto_bkt  &kp RBKT &auto_dqt &kp EXCL   &none
+                                   &bt BT_PRV  &none  &bt BT_NXT     &bt BT_CLR     &none
+            >;
+        };
+
 
         Mouse {
             label = "Mouse";
