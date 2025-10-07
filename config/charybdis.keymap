@@ -12,7 +12,6 @@
 #define NAV   3
 #define SYMB  4
 #define FUNC  5
-#define HANDY 6
 
 
 &lt {
@@ -245,15 +244,7 @@
         };
 
 
-        Handy {
-            label = "HANDY";
-            bindings = <
-   &none  &none  &kp F17     &kp F18     &kp F19     &kp LT       &none &none &none &none &none &none
-   &none  &none  &kp F16     &kp LBKT     &kp RBKT   &kp TILDE    &none &none &none &none &none &none
-   &none  &none  &kp F13     &kp F14     &kp F15     &kp GT       &none &none &none &none &none &none
-                                &none   &none   &none          &none   &none
-            >;
-        };
+
 
 
 
