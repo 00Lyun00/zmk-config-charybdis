@@ -31,6 +31,12 @@
     combos {
         compatible = "zmk,combos";
 
+        combo_main {
+            timeout-ms = <50>;
+            bindings = <&to MAIN>;
+            key-positions = <13 38>;
+        };
+
         combo_alt {
             timeout-ms = <50>;
             bindings = <&kp LALT>;
@@ -253,7 +259,7 @@
    &trans  &trans  &kp F17     &kp F18     &kp F19     &kp LT       &none &none &none &none &none &none
    &trans  &trans  &kp F16     &kp LBKT     &kp RBKT    &kp TILDE   &none &none &none &none &none &none
    &trans  &trans  &kp F13     &kp F14     &kp F15     &kp GT       &none &none &none &none &none &none
-                              &none   &to MAIN   &none                 &none   &none
+                              &none   &none   &none                 &none   &none
             >;
         };
 
