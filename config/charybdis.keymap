@@ -12,7 +12,7 @@
 #define NAV   3
 #define SYMB  4
 #define FUNC  5
-#define MOUSE 6
+#define HANDY 6
 
 
 &lt {
@@ -28,11 +28,6 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_esc {
-            timeout-ms = <50>;
-            bindings = <&kp ESC>;
-            key-positions = <1 2>;
-        };
 
         combo_alt {
             timeout-ms = <50>;
@@ -245,18 +240,18 @@
 &trans  &kp F9  &kp F10  &kp F11  &kp F12    &kp C_VOL_UP        &kp LC(T)  &kp LEFT         &kp LC(L) &kp RIGHT     &none      &none
 &trans  &kp F5  &kp F6   &kp F7   &kp F8     &kp C_MUTE          &kp F5     &kp LA(LEFT)     &mkp MCLK &kp LA(RIGHT) &none      &none
 &trans  &kp F1  &kp F2   &kp F3   &kp F4     &kp C_VOL_DN        &kp LC(W)  &kp LS(LC(TAB))  &none     &kp LC(TAB)   &kp LA(F4) &none
-                                  &none      &none  &none        &none  &none
+                            &bt BT_PRV  &none  &bt BT_NXT        &bt BT_CLR     &none
             >;
         };
 
 
-        Mouse {
-            label = "Mouse";
+        Handy {
+            label = "HANDY";
             bindings = <
-   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-   &trans  &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     &trans
-                              &trans  &trans     &trans    &trans  &trans
+   &none  &none  &kp F17     &kp F18     &kp F19     &kp LT       &none &none &none &none &none &none
+   &none  &none  &kp F16     &kp LBKT     &kp RBKT   &kp TILDE    &none &none &none &none &none &none
+   &none  &none  &kp F13     &kp F14     &kp F15     &kp GT       &none &none &none &none &none &none
+                                &none   &to MAIN   &none          &none   &none
             >;
         };
 
