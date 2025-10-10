@@ -25,6 +25,17 @@
     require-prior-idle-ms = <50>;
 };
 
+/ {
+    behaviors {
+        art_lt: behavior_art_lt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <500>;
+            bindings = <&mo>, <&kp>;
+        };
+    };
+
 
 
 / {
@@ -195,8 +206,8 @@
             label = "Main";
             bindings = <
   &kp TAB  &kp Q  &kp W      &kp F      &kp P  &kp B           &kp J    &kp L      &kp U    &kp Y     &kp MINUS  &kp BSPC
-  &kp ESC  &lt MOUSE A  &kp R      &kp S      &kp T  &kp G     &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
-&kp LSHFT  &lt EXTRA Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
+  &kp ESC  &art_lt MOUSE A  &kp R      &kp S      &kp T  &kp G     &kp M    &kp N      &kp E    &kp I  &kp O    &kp APOS
+&kp LSHFT  &art_lt EXTRA Z  &kp X      &kp C      &kp D  &kp V           &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHIFT
                      &kp LSHFT  &lt NUM SPACE  &lt SYMB DEL    &lt NAV BSPC  &lt FUNC RET
             >;
         };
